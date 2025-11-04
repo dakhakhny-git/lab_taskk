@@ -1,11 +1,12 @@
-name: Simple Workflow
+name: Calculator Test
 
 on: [push]
 
 jobs:
-  hello:
+  test:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Print message
-        run: echo "Workflow is running successfully!"
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+      - run: python -m unittest test_calculator.py
